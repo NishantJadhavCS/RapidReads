@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <title>RapidNews</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animation.css' %}">
+    <link rel="stylesheet" type="text/js" href="{% static 'js/home.js' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<style>
+    .navbar-brand {
+        margin-left: 15px;
+        border-radius: 12px;
+        padding: 0px 10px;
+        background-color: #222831;
+        transition: transform 0.3s ease;
+        -webkit-animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+        animation: slide-in-blurred-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    }
+
+    .navbar-brand:hover {
+        transform: scale(1.2);
+        transition-duration: 0.1s;
+    }
+
+    .banner {
+        height: 925px;
+        background-image: url('{% static "images/mumbai2.jpg" %}');
+        background-size: cover;
+        background-position: top;
+        animation: BGPanBottomBG 2s ease alternate forwards;
+    }
+
+    #feed-info {
+        margin-top: 2px;
+        background-image: url('{% static "images/newspaper.jpg" %}');
+        background-size: cover;
+        background-position: top;
+        height: 350px;
+        display: flex;
+        justify-content: right;
+        align-items: right;
+        animation: BGPanBottom 6s ease 0s 1 alternate forwards;
+    }
+
+    #topheadlines-info {
+        margin-top: 2px;
+        background-image: url('{% static "images/inshorts.jpg" %}');
+        background-size: cover;
+        background-position: top;
+        height: 350px;
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        animation: BGPanBottom 6s ease 0s 1 alternate forwards;
+    }
+
+    #inshorts-info {
+        margin-top: 2px;
+        background-image: url('{% static "images/yell.jpg" %}');
+        background-size: cover;
+        background-position: top;
+        height: 350px;
+        display: flex;
+        justify-content: right;
+        align-items: right;
+        animation: BGPanBottom 6s ease 0s 1 alternate forwards;
+    }
+
+    #about-info {
+        margin-top: 2px;
+        display: flex;
+        min-height: 100px;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(#222831, #000000);   
+    }
+</style>
+
+<body styles="overflow-x:hidden;" styles="background-color:#222831;">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="home.html">
+                <img src="{% static 'images/logo.svg' %}" alt="RapidReads" width="270" height="70">
+            </a>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="menu-bar">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                            <li class="nav-item"><a class="nav-link" href="home.html">HOME</a></li>
+                            <li class="nav-item"><a class="nav-link" href="feed.html">NEWS-FEED</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">TOP HEADLINES</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">INSHORTS</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a class="login-button" href="#">Sign In</a>
+            <button class="navbar-toggler  bg-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        </div>
+    </nav>
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="text-content col-md-6">
+                    <h1>RapidReads</h1>
+                    <h2>Quick news summaries for busy lives</h2>
+                    <p>Stay up-to-date with the latest news and trends with our easy-to-use platform.</p>
+                    <a href="#feed-info" class="learn-more">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="feed-info" data-aos="flip-up" data-aos-delay="10" data-aos-duration="800" data-aos-easing="ease-in-out"
+        data-aos-anchor=".feed-info-text">
+        <div class="feed-info-text" data-aos="zoom-in-left" data-aos-offset="200" data-aos-delay="80"
+            data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <h1>News Feed</h1>
+            <p>Stay up-to-date with the latest news and updates. Our news feed page aggregates content
+                from various sources, providing you with a one-stop destination for all the latest happenings</p>
+            <br>
+            <a href="feed.html" class="menu-button">See News</a>
+        </div>
+    </section>
+    <section id="topheadlines-info" data-aos="flip-up" data-aos-delay="10" data-aos-duration="800" data-aos-duration="800"
+        data-aos-easing="ease-in-out" data-aos-anchor=".topheadlines-info-text">
+        <div class="topheadlines-info-text" data-aos="zoom-in-right" data-aos-delay="15" data-aos-offset="200"
+            data-aos-delay="80" data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <h1>Top Headlines</h1>
+            <p>Your go-to destination for the latest, most relevant headlines. Stay informed with our curated selection
+                of top stories.</p>
+            <br>
+            <a href="#" class="menu-button1">See News</a>
+        </div>
+    </section>
+    <section id="inshorts-info" data-aos="flip-up" data-aos-delay="10" data-aos-duration="800" data-aos-duration="800"
+        data-aos-easing="ease-in-out" data-aos-anchor=".inshorts-info-text">
+        <div class="inshorts-info-text" data-aos="zoom-in-left" data-aos-offset="200" data-aos-delay="80"
+            data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <h1>InShorts</h1>
+            <p>Didn't find summarized articles in the news feed?</p>
+            <div styles="filter: blur(5px);">
+                <p>No worries, go to the InShorts section to summarize articles of your choice.</p>
+            </div>
+            <br>
+            <a href="#" class="menu-button">Get InShorts</a>
+        </div>
+    </section>
+
+    <section id="about-info" data-aos="flip-up" data-aos-offset="50" data-aos-delay="4" data-aos-duration="800"
+    data-aos-easing="ease-in-out">
+        <a href="https://wa.me/918928755993" target="_blank" title="WhatsApp">
+            <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp" class="contact-icon">
+        </a>
+        <a href="mailto:nishantjadhav.cs@gmail.com" target="_blank" title="Gmail">
+            <img src="{% static 'images/gmail.png' %}" alt="Gmail Icon" class="contact-icon">
+        </a>
+        <a href="https://www.instagram.com/nishnt__10/" target="_blank" title="Instagram">
+            <img src="{% static 'images/instagram.png' %}" alt="Facebook" class="contact-icon">
+        </a>
+        <a href="https://wa.me/your-whatsapp-number" target="_blank" title="FaceBook">
+            <img src="{% static 'images/facebook.png' %}" alt="Facebook" class="contact-icon">
+        </a>
+    </section>
+</body>
+
+</html>
