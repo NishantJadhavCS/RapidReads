@@ -7,4 +7,3 @@ const nextSection = document.querySelector('#feed-info');
 learnMoreButton.addEventListener('click', () => {
     nextSection.scrollIntoView({ behavior: 'smooth' });
 });
-
