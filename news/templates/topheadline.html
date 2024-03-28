@@ -121,9 +121,10 @@
                 <h3><b>Published Date:</b> {{ headline.publishedAt }}</h3>
                 <h3><b>Source:</b> {{ headline.source.name }}</h3>
                 <br>
-                <form method="'POST">
-                    <a href="{{headline.url}}" class="article-button">Go to article</a>
-                    <button class="article-button">Summarize</button>
+                <form method="GET" action="{% url 'summarizeurl' %}" target="_blank">
+                    <a href="{{ headline.url }}" class="article-button" target="_blank">Go to article</a>
+                    <input type="hidden" name="article_url" value="{{ headline.url }}">
+                    <button type="submit" class="article-button">Summarize</button>
                 </form>
             </section>
         </div>

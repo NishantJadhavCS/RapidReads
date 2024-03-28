@@ -8,4 +8,5 @@ urlpatterns = [
     path("feed.html", views.feed, name="feed"),
     path("topheadline.html", views.topheadline, name="topheadline"),
     path("inshorts.html", views.inshorts, name="inshorts"),
+    path("summarize.html", views.summarizeurl, name="summarizeurl"),
 ]

@@ -127,3 +127,43 @@ def inshorts(request):
         return render(request, "inshorts.html", {"summarized_text": summarized_text})
     else:
         return render(request, "inshorts.html")
+
+
+def summarizeurl(request):
+    if request.method == "GET":
+        article_url = request.GET.get("article_url")
+        extractor = Goose()
+        try:
+            article = extractor.extract(article_url)
+        except:
+            return render(
+                request,
+                "summarize.html",
+                {"error_message": "url-error"},
+            )
+
+        if article is None:
+            return render(
+                request,
+                "summarize.html",
+                {"error_message": "url-error"},
+            )
+
+        if not article.cleaned_text:
+            return render(
+                request,
+                "summarize.html",
+                {"error_message": "no-text"},
+            )
+
+        sentences = sent_tokenize(article.cleaned_text)
+        if len(sentences) < 2:
+            return render(
+                request,
+                "summarize.html",
+                {"error_message": "less-sentence"},
+            )
+        summarized_text = summarize(article.cleaned_text)
+        return render(request, "summarize.html", {"summarized_text": summarized_text})
+
+    return render(request, "summarize.html")
