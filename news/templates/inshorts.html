@@ -42,6 +42,27 @@
         transform: scale(1.02);
         transition-duration: 0.2s;
     }
+
+    .inshorts-search {
+        display: flex;
+        background-image: url('{% static "images/pen.jpg" %}');
+        background-size: cover;
+        background-position: top;
+        min-width: 100px;
+        min-height: 800px;
+        justify-content: space-between;
+    }
+
+    .result-container {
+        padding: 0px 100px;
+        padding-bottom: 50px;
+        line-height: 1.8;
+        background-image: url('{% static "images/pen.jpg" %}');
+        background-size: cover;
+        background-repeat: repeat;
+        color: #F2F2F2;
+        font-size: 20px;
+    }
 </style>
 
 <body styles="overflow-x:hidden;" styles="background-color:#222831;">
@@ -71,11 +92,6 @@
                     </div>
                 </div>
             </div>
-            <a class="login-button" href="#">Sign In</a>
-            <button class="navbar-toggler  bg-white" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
         </div>
     </nav>
@@ -83,6 +99,9 @@
         <section class="text-content">
             <h1>InShorts</h1>
             <h3>Get summaries of articles.</h3>
+            {%if summarized_text %}
+            <h2>Summary <br> &#x21e9;</h2>
+            {% endif %}
         </section>
         <section class="search-box">
             <form method="POST">
@@ -94,23 +113,34 @@
         </section>
     </div>
     <div class="result-container">
-            <br>
-            {% if error_message %}
-            {% if error_message == "url-error" %}
-            <p>Failed to extract article from the provided URL.</p>
-            {% elif error_message == "no-text" %}
-            <p>This article does not have any text.</p>
-            {% elif error_message == "less-sentence" %}
-            <p>This article does not have enough sentences to summarize.</p>
-            {% else %}
-            {% endif %}
-            {% else %}
-            {% if summarized_text %}
-            <h3>Summarized Text</h3>
-            <p>{{ summarized_text }}</p>
-            {% endif %}
-            {% endif %}
+        <br>
+        {% if error_message %}
+        {% if error_message == "url-error" %}
+        <p>Failed to extract article from the provided URL.</p>
+        {% elif error_message == "no-text" %}
+        <p>This article does not have any text.</p>
+        {% elif error_message == "less-sentence" %}
+        <p>This article does not have enough sentences to summarize.</p>
+        {% else %}
+        {% endif %}
+        {% else %}
+        {% if summarized_text %}
+        <h3>Summarized Text</h3>
+        <p>{{ summarized_text }}</p>
+        {% endif %}
+        {% endif %}
     </div>
+
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
 </body>
 
 </html>

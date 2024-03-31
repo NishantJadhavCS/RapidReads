@@ -1,11 +1,3 @@
-.topheadline-search {
-    display: flex;
-    min-width: 100px;
-    min-height: 700px;
-    background: linear-gradient(164deg, #31363F 55%, #eaeaec 55.1%);
-    justify-content: space-between;
-}
-
 .text-content {
     margin-top: 200px;
     flex-direction: center;
@@ -21,7 +13,7 @@
 }
 
 .topheadline-search h1 {
-    margin-left: -900px;
+    margin-left: -800px;
     font-size: 90px;
     font-weight: 700;
     color: #eaeaec;
@@ -30,13 +22,24 @@
 }
 
 .topheadline-search h3 {
-    margin-left: -700px;
+    margin-left: -500px;
     margin-top: 40px;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 500;
     color: #eaeaec;
     animation: fadeIn 2s ease;
     animation: FadeInLeft 1s ease 0s 1 normal forwards;
+}
+
+.topheadline-search h2 {
+    margin-left: 300px;
+    margin-top: 380px;
+    font-size: 48px;
+    font-weight: 600;
+    color: #eaeaec;
+    animation: fadeIn 2s ease;
+    -webkit-animation: bounce-top 1s both;
+    animation: bounce-top 1s both;
 }
 
 .form-select {
@@ -58,37 +61,42 @@ input[type="checkbox"] {
     margin-left: -230px;
     width: 24px;
     height: 24px;
-    border: 2px solid #bfbfc0;
+    border: 2px solid #eaeaec;
     border-radius: 50%;
     cursor: pointer;
+    animation: fadeIn 1s;
 }
 
 input[type="checkbox"]:checked {
-    background-color: #5486e4;
+    background-color: #eaeaec;
 }
 
 label {
     font-size: 17px;
     margin-left: 10px;
+    color: #eaeaec;
+    animation: fadeIn 1s;
 }
 
 .outline-button {
-    border: 2px solid #31363F;
+    border: 2px solid #eaeaec;
     margin-top: 28px;
     margin-left: -160px;
     border-radius: 22px;
     padding: 10px 28px;
     font-size: 14px;
     text-transform: uppercase;
-    color: #31363F;
+    color: #eaeaec;
     background-color: transparent;
     transition: all 0.2s linear;
+    animation: zoomIn 1s ease;
 }
 
 .outline-button:hover {
-    color: white;
-    background-color: #1c2027;
-    border-color: #e9e9e9;
+    color: #012340;
+    background-color: #eaeaec;
+    font-weight: 600;
+    border-color: #012340;
     transition: all 0.2s linear;
     transform: scale(1.1);
 }
@@ -101,14 +109,13 @@ label {
     justify-content: space-between;
     background-color: #eaeaec;
     color: #ffffff;
-    min-height: 450px;
     font-size: 20px;
 }
 
 .article-wrapper {
     border: 0.5px solid #ffffff;
     display: flex;
-    background-color: #eaeaec;
+    background-color: #b5dcf5;
 }
 
 .article-image {

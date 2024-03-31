@@ -40,15 +40,17 @@
 <style>
     .result-container {
         min-width: 100px;
+        background-image: url('{% static "images/pen1.jpg" %}');
+        background-size: cover;
+        background-repeat: repeat;
         min-height: 900px;
-        background-color: #eaeaec;
         justify-content: center;
         padding: 60px 60px;
     }
 
     h1 {
         text-align: center;
-        font-size: 80px;
+        font-size: 60px;
         font-weight: 700;
         margin-bottom: 50px;
         color: #31363F;
@@ -87,7 +89,7 @@
 
 <body styles="overflow-x:hidden;">
     <div class="result-container">
-        <h1>Summarize Article</h1>
+        <h1>Summarized Article</h1>
         <h2>{{summarized_text}}</h2>
         {% if error_message %}
         {% if error_message == "url-error" %}

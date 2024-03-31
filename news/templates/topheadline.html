@@ -42,6 +42,16 @@
         transform: scale(1.02);
         transition-duration: 0.2s;
     }
+
+    .topheadline-search {
+        display: flex;
+        background-image: url('{% static "images/city.jpg" %}');
+        background-size: cover;
+        background-position: top;
+        min-width: 100px;
+        min-height: 923px;
+        justify-content: space-between;
+    }
 </style>
 
 <body styles="overflow-x:hidden;" styles="background-color:#222831;">
@@ -71,18 +81,16 @@
                     </div>
                 </div>
             </div>
-            <a class="login-button" href="#">Sign In</a>
-            <button class="navbar-toggler  bg-white" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
         </div>
     </nav>
     <div class="topheadline-search">
         <section class="text-content">
-            <h1>Search News</h1>
-            <h3>Search news articles of your choice from the past week</h3>
+            <h1>Top Headlines</h1>
+            <h3>Explore the most significant news stories making headlines around the world.</h3>
+            {%if headlines %}
+            <h2>Headlines<br> &#x21e9;</h2>
+            {% endif %}
         </section>
         <section class="search-box">
             <form method="POST">
@@ -106,15 +114,14 @@
     </div>
     <div class="result-container">
         {%if headlines %}
-        <h2>Search Results</h2>
         {% for headline in headlines %}
-        <div class="article-wrapper" data-aos="flip-down" data-aos-duration="500" data-aos-easing="ease-in-out">
+        <div class="article-wrapper">
             <section class="article-image">
-                <img src="{{ headline.urlToImage }}" data-aos="flip-down" alt="Article Image" class="article-image"
-                    width="520px" height="400px">
+                <img src="{{ headline.urlToImage }}" data-aos="flip-down" data-aos-duration="500"
+                    data-aos-easing="ease-in-out" alt="Article Image" class="article-image" width="520px"
+                    height="400px">
             </section>
-            <section class="article-text" data-aos="fade-left" data-aos-duration="600" data-aos-offset="0"
-                data-aos-easing="ease-in-out">
+            <section class="article-text" data-aos="fade-left" data-aos-duration="700" data-aos-easing="ease-in-out">
                 <h1>{{ headline.title }}</h1>
                 <h3>{{ headline.description }}</h3>
                 <h3><b>Author: </b> {{ headline.author }}</h3>
