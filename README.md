@@ -1,4 +1,4 @@
-#RapidReads
+# RapidReads
 
 RapidReads is a Python-based web application that allows users to efficiently summarize news articles scraped from various sources using the News API. With RapidReads, users can quickly obtain concise summaries of news articles, enabling them to stay informed without spending a lot of time reading lengthy articles.
 
