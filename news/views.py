@@ -22,7 +22,7 @@ def feed(request):
         yesterday_str = yesterday.strftime("%Y-%m-%d")
         today_str = now.strftime("%Y-%m-%d")
 
-        newsapi = NewsApiClient(api_key="5df0230b73754bb4a4454b1980ca0486")
+        newsapi = NewsApiClient(api_key="YOUR_API_KEY")
         response = newsapi.get_everything(
             q=query,
             language="en",
@@ -59,7 +59,7 @@ def feed(request):
 def topheadline(request):
     if request.method == "POST":
         category = request.POST.get("category")
-        api_key = "5df0230b73754bb4a4454b1980ca0486"
+        api_key = "YOUR_API_KEY"
 
         url = f"https://newsapi.org/v2/top-headlines?category={category}&language=en&apiKey={api_key}"
 
