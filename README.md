@@ -25,4 +25,7 @@ Create a new account and get copy your API Key.
 
 Replace the 'YOUR_API_KEY' in accouts/views.py with your personal API Key.
 
+To run the project on development server run the following command: 
+python manage.py runserver
+
 For any further query email me at nishantjadhav.cs@gmail.com
